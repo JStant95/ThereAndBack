@@ -10,6 +10,7 @@ class Form extends Component {
     buttonText: "Add endpoint",
     generateButton: "Generate",
     seed: 1,
+    splice: false,
   };
 
   componentDidMount() {
@@ -201,6 +202,7 @@ class Form extends Component {
           this.setState({
             generateButton: "Randomise",
             seed: this.state.seed + 1,
+            splice: true,
           });
         });
     };
@@ -224,7 +226,6 @@ class Form extends Component {
     } else {
       displayRoundStartingPoint = this.state.roundTripStart;
     }
-
     return (
       <div>
         {this.state.roundTrip == true ? (
@@ -381,6 +382,7 @@ class Form extends Component {
           vehicle={this.state.vehicle}
           lat={this.state.lat}
           lng={this.state.lng}
+          splice={this.state.splice}
         />
       </div>
     );

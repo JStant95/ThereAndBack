@@ -11,7 +11,7 @@ class RoutingRoundTrip extends MapLayer {
   }
 
   createLeafletElement() {
-    const { map, roundTripCoords, vehicle } = this.props;
+    const { map, roundTripCoords, vehicle, splice } = this.props;
     var apiGraphHopper = process.env.REACT_APP_GRAPHHOPPER;
 
     let waypointsArr = [];
@@ -38,6 +38,11 @@ class RoutingRoundTrip extends MapLayer {
         },
       }),
     }).addTo(map.leafletElement);
+    console.log(splice);
+    if (this.props.splice == true) {
+      leafletElement.spliceWaypoints(0, 50);
+    }
+
     return leafletElement.getPlan();
   }
 }

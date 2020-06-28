@@ -12,6 +12,7 @@ class Routing extends MapLayer {
   createLeafletElement() {
     console.log(this.props);
     const { map, startingCoords, endingCoords, vehicle } = this.props;
+
     // console.log("YOOOOO");
     // console.log(startingCoords);
     // console.log(endingCoords);
@@ -22,7 +23,7 @@ class Routing extends MapLayer {
     // var lat = localStorage.getItem("lat");
     // var lng = localStorage.getItem("long");
 
-    let leafletElement = L.Routing.control({
+    let leafletElement = new L.Routing.control({
       waypoints: [
         L.latLng(startingCoords[0], startingCoords[1]),
         L.latLng(endingCoords[0], endingCoords[1]),
@@ -35,6 +36,8 @@ class Routing extends MapLayer {
         },
       }),
     }).addTo(map.leafletElement);
+    leafletElement.spliceWaypoints(0, 2);
+    // leafletElement.spliceWaypoints(0, 2);
     return leafletElement.getPlan();
   }
 }
