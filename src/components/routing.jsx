@@ -36,8 +36,10 @@ class Routing extends MapLayer {
         },
       }),
     }).addTo(map.leafletElement);
-    leafletElement.spliceWaypoints(0, 2);
-    // leafletElement.spliceWaypoints(0, 2);
+    console.log(map);
+    var maps = [];
+    maps.push(map);
+    console.log(L.control.layers(overLayMaps));
     return leafletElement.getPlan();
   }
 }

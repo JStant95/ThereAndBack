@@ -14,6 +14,10 @@ class RoutingRoundTrip extends MapLayer {
     const { map, roundTripCoords, vehicle, splice } = this.props;
     var apiGraphHopper = process.env.REACT_APP_GRAPHHOPPER;
 
+    var i;
+
+    i += 1;
+
     let waypointsArr = [];
     waypointsArr.push(L.latLng(roundTripCoords[0][1], roundTripCoords[0][0]));
     roundTripCoords.forEach((item, i) => {
@@ -29,7 +33,7 @@ class RoutingRoundTrip extends MapLayer {
       )
     );
 
-    let leafletElement = L.Routing.control({
+    let leafletElement = new L.Routing.control({
       waypoints: waypointsArr,
 
       router: L.Routing.graphHopper(apiGraphHopper, {
