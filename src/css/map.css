@@ -16,7 +16,7 @@
   padding: 20px;
 }
 
-.leaflet-routing-container {
+/* .leaflet-routing-container {
   height: 250px;
   width: 200px;
   overflow: hidden;
@@ -26,7 +26,7 @@
 
 .leaflet-routing-container:first-of-type {
   display: none;
-}
+} */
 
 a.leaflet-control-zoom-in,
 a.leaflet-control-zoom-out,

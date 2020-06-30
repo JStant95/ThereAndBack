@@ -1,11 +1,10 @@
-import { MapLayer } from 'react-leaflet';
-import L from 'leaflet';
-import 'leaflet-routing-machine';
-import 'lrm-graphhopper';
-import { withLeaflet } from 'react-leaflet';
+import { MapLayer } from "react-leaflet";
+import L from "leaflet";
+import "leaflet-routing-machine";
+import "lrm-graphhopper";
+import { withLeaflet } from "react-leaflet";
 
 class Routing extends MapLayer {
-
   state = {
     leafletElement: "",
     leafletElements: [],
@@ -26,6 +25,7 @@ class Routing extends MapLayer {
   }
 
   createLeafletElement() {
+    console.log("yo");
     const { map, startingCoords, endingCoords, vehicle } = this.props;
     var apiGraphHopper = process.env.REACT_APP_GRAPHHOPPER;
 
@@ -50,9 +50,11 @@ class Routing extends MapLayer {
 
     if (this.props.generated < 1) {
       leafletElement.spliceWaypoints(0, 2);
+      // leafletElement.hide();
     }
 
     leafletElement.addTo(map.leafletElement);
+    console.log(leafletElement.getPlan());
     return leafletElement.getPlan();
   }
 }
